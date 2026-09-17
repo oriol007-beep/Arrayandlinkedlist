@@ -1,0 +1,33 @@
+Method                              ArrayList Runtime    LinkedList Runtime   Explanation
+boolean add(T element)                 O(1)                      O(1)          by using  a tail pointer in linkedList, we don't have to iterate through the whole LL, but we have to use a for loop in AL.
+
+boolean add(int index, T element)       O(n)                    O(n)           in LL, we have to traverse n amount of nodes to reach index, and in AL, element at index and after index must be shifted to the right by 1.
+
+void clear()                            O(1)                    O(1)           AL resets size to 0, while LL sets head.getNext() to null and sets size to 0.
+
+T get(int index)                        O(1)                    O(n)           we have direct access to the array with indexing, but in LL, we have to use a while loop and int variable to check if the node is the right index
+
+int indexOf(T element)                  O(n)                    O(n)           both use a loop to compare if the element at a specific index matches the the one inputted, but for linked list it could be O(1) if isSorted is true since it could stop early.
+
+boolean isEmpty()                       O(1)                     O(1)          just see if the size of either AL or LL is == 0
+
+int size()                              O(1)                     O(1)          just increment size everytime you change the size of the AL or LL (remove(), add(), etc.)
+
+void sort()                             O(n^2)                     O(n^2)      AL compares and shifts elements, LL goes through each nodes and inserts, both use insertion sort
+
+T remove(int index)                    O(n)                     O(n)           since we have to shift all elements in AL after remove its O(n) time, and in LL we must get to the node before index which is O(n) also.
+
+void reverse()                          O(n)                     O(n)          AL swaps elements in place from start to end, and LL goes through the list and reverses links in place
+
+void removeDuplicates()                 O(n^2)                     O(n^2)      in AL for each element you have to check if every other element is the same as that element. In LL, you have to go thorugh each node to see if its a dupe of that node
+
+void exclusiveOr(List<T> otherList)     O(n + m)                     O(n * m)  AL has to compare elements (n = being the original list, m being the other), remove shared/duplicate elements and sort. LL has to traverse each node to check other ones, then it sorts and removes duplicates.
+void merge(List<T> list)                O(n + m)                     O(n + m ) Al makes a new array size thats n + m and copies both arrays, LL traverses both lists and relinks the nodes
+
+T getMin()/getMax()                            O(n)                      O(n)         they both have to iterate through the list to compare elements but if isSorted is true, then for Al min = first index, and the max is the last, and for LL the tail pointer provides direct access
+
+boolean isSorted                           O(1)                       O(1)     just returns isSorted, which is updated in every method that alters the list
+
+String toString()                    O(n)                         O(n)         both lists have to traverse through themselves to add to the empty string.
+
+
